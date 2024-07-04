@@ -1,0 +1,22 @@
+{
+  "name": "part5",
+  "version": "1.0.0",
+  "description": "server-side rendering with EJS in Express.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon index.js"
+  },
+  "keywords": [
+    "backend-domination",
+    "backend"
+  ],
+  "author": "omkar",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

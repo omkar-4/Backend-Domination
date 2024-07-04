@@ -1,0 +1,30 @@
+100 - request reached/accepted by server
+
+101 - redirect to new protocol
+
+= 200 - request came, processed, successfully response sent with no issues - OK STATUS
+
+= 201 - successfull creation status - created status (maybe like social media post)
+
+= 202 - you gave async task to server, server says " ok i am working on it, when it will be done i will 'tell' you' - request accepted and it's in process - accepted status
+
+= 203 - in distributed network system, request forwarded to other server or third party software/server
+-- request say came in for signup with google, it came to main server then got forwareded to google server, maybe like that, not sure ~? (unveiling non-authoritative information)
+
+
+301 - resource has been moved to other place permanently, see somewhere else
+
+307 - temporary redirect (eg. site moved to temp new link)
+
+308 - permanent redirect request with retention (warning info not error - perm moved to this new url)
+
+400s - ERROR
+400 - bad request
+401 - unauthorized (say deleting thing)
+403 - forbidden
+404 - not found
+
+500s - server side errors
+500 - internal server error
+502 - bad gateway (eg. req sent to server 1 which got forwarded to server 2, but say server 2 is dead, or responded with some trash response, in that case server 1 sends error status code 502)
+503 - service unavailable (eg. server is busy and unable to process req)

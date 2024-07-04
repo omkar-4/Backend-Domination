@@ -1,0 +1,168 @@
+Internet
+IP Address
+MAC Address
+Proxy
+Reverse Proxy
+VPN
+Protocol
+Server
+Client
+ISP
+TCP
+IP
+UDP
+HTTP Versions
+
+Radiowaves -> Tower -> ISP
+
+IP Address ISP deta hai jab koi device internet se connect hoti hai
+2 tarah ke IPs -
+IPv4 - 66.94.29.13
+IPv6 - 2001:0000:3238:DFE1:0063:0000:0000:FEFB
+
+IPv6 - address space is quite large, it can produce 3.4 * 10^38 address space
+
+IP Address is given through a protocol called DHCP(Dynamic Host COnfiguration Protocol)
+
+-- IP Address typically represented as four decimal digits separated by periods/colons.
+
+MAC Address (Media Access Control) is the device's physical address which is incorporated into the chip.
+
+local area address - MAC address
+internet address - IP address
+
+// subnet mask?
+
+A ko B se baat karni hai
+A B ke beech me C aa jaata hai
+-- ye proxy hai
+
+directly server se baat karne ki jagah aap X ko msg bhejiye X server ko msg bhejega
+
+-- similar to proxy is VPN (Virtual Private Network)
+but VPN, uspe data encrypted hoti hai, kaafi provider no-log ka bhi options dete hai, but ya ye paid ho sakte hai.
+
+server ek software hai jo serve karta hai.
+also can say server ek computer hai jo internet se connected hai and wo programmed hai data ko share karne ke liye
+
+client normal computer systems jo server se data lekar aate hai.
+
+reverse proxies - proxy client side pr hoti hai, rever proxy server side pr set hoti hai,
+jo request hai wo pehle reverse proxy ke paad jaayegi main ke paad nehi, jo check karega agar kahin request me kuch malicious to nehi hai ya koi baar baar to request nehi bhej raha, mainly rate-limiting ke liye ye use hoti hai reverse proxy.
+
+Rate-limiting se hi DDOS attack se protection bhi milti hai.
+Ye software wise toh kar hi skte hai but reverse proxy server ke through hardware wise bhi kar skte hai.
+
+reverse proxy server function is also is to route incoming requests to the appropriate bakend servers.
+
+Purpose of proxy server in networking -
+-- to filter and cache web content for improved performance
+-- it's an intermediary between client and internet. it can filter web content to enforce policies and cache frequently accessed web pages to improve performance for users on a Network.
+
+----------
+
+Protocols -
+
+jab internet bana, jiss community ne banaya, and chalaane ke liye browsers chiye, to agar sabne alag alag tarah se browsers banaye then alag alag browsers me alag alag tarah se internet chalega bhai, aise to dikkat ho jaayegi, internet pr proper rules hone chiye.
+Agar aap browser bana rahe hai usse http/s follow karna padega, uska geolocation ip-address sab transfer karna padega etc... har chiz ke liye rules banaye gaye.
+
+chalane ke, downloading ke sabke etc ...
+
+Protocols - alag alag broswers ek hi tarah se rules follow kare and same page pr rahe, uske liye protocols banaye gaye.
+
+TCP(transmission control protocol) - data server pr pohonchne pr aapko achknowledgement milti hai
+--
+jaise aapko achknowledgement milt hai social media jaise whatsapp pr msg ke pohonchne pr, jo double tick aat hai and read pr blue doublt tick, waisa kuch TCP ka kaam hota hai
+
+IP - Internet protocol ke tahat IP address wagera chalta hai, ISP ke dwara IP address IP ke tahat DHCP ke through diya jaata hai.
+
+>> same ip alag alag time pr alag alag logo ko diya jaata hai.
+
+TCP - establish connection and ensure reliable data transmisison between devices.
+
+TCP me 3 way handshake hota hai ?? - gpt it
+
+UDP wagera streaming wagera me use hota hai, - 
+
+TCP bhejo acknowledgement milega
+UDP one way hai, data feekte rehte ho data ko, check nehi karta, speed matter karta hai, beech ka data gaya bhi to koi farak nehi padta, chalega'. data pohonchna chiye. 
+
+UDP is very fast, doesn't needs acknowledgement. TCP is 2 way, acknowledgement slows it down.
+
+UDP - User Datagram Protocol
+UDP is connectionless, it doesn't establishes a connection before data transmission.
+
+HTTP V1
+HTTP V2
+HTTP V3
+-- Version lower me congession hoti hai, router ko to fat fat data bhej sakte ho lekin router forward slow karta hai. v2 is like better but still not for today's need.
+V3 has the real deal - UDP and TCP/IP both.
+
+HTTP V1.1 introducedpersistent connections (aka keep-alive connections) and pipelining which allow multiple requests and responses to be sent over a single TCP connection w/o waiting for each one to complete, improving the efficieny of network communication.
+
+----
+
+Node.js -
+is js server runtine env
+
+❌ not language
+❌ not technology
+❌ not lib or framework
+
+Terms for Node.js -
+-> non-blocking I/O
+-- block of code hai node ka wo block nehi karega via async functions, side me chalte rahega baaki ka code
+
+-> asynchronous based model
+-- main stack ko rok ke rehi rakhega. 
+
+=> jaise apache servers me php use hota hai jiska blocking code hota hai. sync code chalta hai kindof.
+
+==> node js built hai google chrome ke v8 engine par.
+ryan dan ne v8 engine ke code ko uthaya, uspar modifications kare, wrapper lagaya, and bana node.js
+-- ye pehli cheez bani thi jo js ko browser context ke bahar run kar sakti thi
+
+------
+
+libuv - ye wo banda hai jis wajah se node.js across platforms consistently asyncronously perform kar paata hai, same tarah hai.
+- nodejs even driven bhi hai
+- nodejs is mainly for realtime applications/connections
+- handling many clients = serving a lot of requests but,
+-- not good for tasks which requrie high computational CPU/GPU power like image processing etc ...
+
+Node js -
+-> it has a single-thread architecture.
+what is thread? - aap dukaan me kaam karte hai, aapke paas 12 customers hai, ek customer bola ladoo dedo, mai bola, bhai ladoo dedo, doosra customer bola kachori, mai bola kachori dedo, theesra poha, mai poha order kara ;; mai dukkan ko manage kar raha, and jo ki mai free hu mai client se order loonga and banane waale ko kaam forward karoonga. Mai wo thread hu.
+
+node js single threaded - poha laana, bolte hi, are o poha laana, bolke thread free ho chuka hai.
+
+request aati hai node-thread ke paas jo single thread hai, wo kam oaas karta hai "event loop" ko and free ho jaata hai.
+--- event loop kaam ko perform karta hai.
+--- event loop ek ke baad ek async way me kaam ko perform karega, parallel me tho not saath me
+
+Thread ko middlemen hai jo client se request event loop ko deta, and eloop se response ko lekar client ko dega.
+
+isiliye intensive task jaise image processing, node ko use nehi karte, kyuki wo continuously laga rahega processing me, kaam me, request response handle baar baar and busy ho jaayega.
+
+-- isiliye jaise python language hai jo kindof multi-threaded hai
+
+------------
+
+dependencies jo packeages hame chahiye kaam karne ke liye and wo jinpackahes par dependent hai.
+
+dev dependencies - jo sirf humare laptop par chalengi leking production me jab deploy hogi server pr jab woh packages deploy nehi hongi. sirf humare laptop pr dev ke time.
+
+-> node_modules stores installed dependencies
+
+// callback API
+// sync API
+// async API
+
+// callback API is async-type
+
+npm = packages
+node = modules
+
+---------------------
+
+// routing yaani aap alag alag urls bana sate ho and unpar kya kya hoga.

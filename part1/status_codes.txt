@@ -1,0 +1,72 @@
+>>> pls explain me 100s status codes in backend development in detail with proper technicalities but explanation in simple language
+Hey there, let's talk about the wonderful world of HTTP status codes. These are special numbers that websites send
+back to your browser when you make a request to access a resource on their server. There are five main categories
+of these status codes: Informational, Successful, Redirection, Client Error, and Server Error.
+
+1. **Informational Status Codes (100-199)**
+
+These status codes give information about the server or the current state of the request. You won't usually see
+these in everyday use but it's good to know they exist!
+
+   * 100: Continue - The server is ready to receive data from you, so go ahead and send your request.
+   * 101: Switching Protocols - The server wants to change protocols during communication (like switching from
+HTTP to HTTPS).
+   * 102: Processing - The server needs some time to process your request.
+
+2. **Successful Status Codes (200-299)**
+
+These are the success codes that let you know everything went well with your request! Yay!
+
+   * 200: OK - Your request was successful, and the server will respond with a resource.
+   * 201: Created - The server created a new resource for you based on your request.
+   * 202: Accepted - The server has accepted your request but might not have fully processed it yet.
+   * 203: Non-Authoritative Information - The server received information from another source that is not
+authoritative (like, it's not the original data).
+   * 204: No Content - The server will not return any content with this response.
+   * 205: Reset Content - Similar to 204, but the browser might still send a request header.
+   * 206: Partial Content - The server is returning only a part of the requested resource.
+
+3. **Redirection Status Codes (300-399)**
+
+These codes tell your browser where to find the resource you're looking for. So, follow these redirects!
+
+   * 301: Moved Permanently - The requested resource has been permanently moved to another location.
+   * 302: Found - The requested resource is temporarily located at a different URL.
+   * 303: See Other - Similar to 302 but the browser should use a GET request for the new location.
+   * 304: Not Modified - You've already got the latest version of the requested resource, so there's no need to
+fetch it again.
+   * 305: Use Proxy - The server wants you to use a proxy to access the requested resource.
+   * 307: Temporary Redirect - Similar to 302 but the browser should use the same method (like POST) for the new
+location.
+
+4. **Client Error Status Codes (400-499)**
+
+These codes indicate that there's something wrong with your request, so you might need to make some changes!
+
+   * 400: Bad Request - Your request contains invalid data or is missing required information.
+   * 401: Unauthorized - You don't have the necessary credentials to access the requested resource (like, you
+forgot your password!).
+   * 403: Forbidden - The server won't allow your request because of security restrictions.
+   * 404: Not Found - The requested resource doesn't exist on the server (like, a non-existent page).
+   * 405: Method Not Allowed - You're trying to use an unsupported HTTP method (like, you used POST instead of GET).
+   * 406: Not Acceptable - The server won't provide content in the format your browser can understand.
+   * 407: Proxy Authentication Required - The proxy requires additional authentication information from you before accessing the resource.
+
+5. **Server Error Status Codes (500-599)**
+
+These codes indicate that something went wrong on the server, so don't worry, it's not just you!
+
+   * 500: Internal Server Error - A general error that doesn't provide any specific details.
+   * 501: Not Implemented - The server can't handle your request because of a missing implementation.
+ * 502: Bad Gateway - An intermediate server between you and the final destination returned an error (like, a
+proxy).
+   * 503: Service Unavailable - The server is currently unavailable for maintenance or some other reason.
+   * 504: Gateway Timeout - The gateway server didn't receive a response from the final destination within a
+certain time limit.
+   * 505: HTTP Version Not Supported - The server doesn't support the version of HTTP your browser is using (like,
+old browsers with outdated versions).
+   * 506: Variant Also Negotiable - This status code is for situations where the client can choose between
+different representations of a resource.
+
+Now that you know all about these HTTP status codes, you're well-equipped to handle any situation that might come
+up in your web development journey. Enjoy your newfound knowledge and happy coding!

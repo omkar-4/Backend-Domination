@@ -1,0 +1,29 @@
+ERROR NOs. in FILE SYSYTEM fs NODE.js ->
+---------------------------------------
+
+1. **EACCESS**: This error occurs when a process tries to        
+access a file or directory for which it does not have
+sufficient permissions.
+
+2. **ENOENT**: This error is thrown when the system cannot       
+find a specified file or directory.
+
+3. **EEXIST**: This error is triggered when you try to
+create a new file or directory that already exists.
+
+4. **EPERM**: This error occurs when a process tries to
+perform an operation on a file or directory that requires        
+elevated permissions, but those permissions are not
+available.
+
+5. **EBADF**: This error is thrown when the system cannot        
+read from or write to a file due to an invalid file
+descriptor.
+
+6. **EIO**: This error is triggered by a failed read or
+write operation on a file due to a hardware failure or 
+other system issue.
+
+7. **EISDIR**: This error occurs when you try to create a        
+new file in a directory that does not allow the creation of      
+files, such as a directory itself.
