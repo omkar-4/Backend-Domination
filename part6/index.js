@@ -3,6 +3,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 app.get('/', (req,res)=>{
@@ -10,7 +11,15 @@ app.get('/', (req,res)=>{
 });
 
 app.get('/check', (req,res)=>{
-    res.send("working");
+    // res.send("working");
+    console.log(req.query)
+    res.send('mil gaya get data');
+});
+
+app.post('/create', (req,res)=>{
+    // res.send("working");
+    console.log(req.body);
+    res.send('mil gaya post data');
 });
 
 app.listen(3000);
